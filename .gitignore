@@ -1,0 +1,9 @@
+/win/
+.vs
+out
+libnativeipc/include/nativeipc/nativeipc_export.h
+build
+node_modules/
+.idea
+/cmake-build-*/
+.DS_Store

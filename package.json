@@ -1,0 +1,21 @@
+{
+  "name": "twitch-desktop-native-ipc",
+  "version": "3.1.1",
+  "main": "include.js",
+  "description": "C++ code for IPC",
+  "author": "Georgii Kharchenko, Scott Maxwell",
+  "license": "MIT",
+  "scripts": {
+    "clean": "yarn && rimraf build && mkdir build",
+    "configure:static": "yarn clean && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=On -DMSVC_DYNAMIC_RUNTIME=Off -DBUILD_SHARED_LIBS=Off",
+    "configure:dynamic": "yarn clean && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=On -DMSVC_DYNAMIC_RUNTIME=Off -DBUILD_SHARED_LIBS=On",
+    "configure:static:x86": "yarn clean && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=On -DMSVC_DYNAMIC_RUNTIME=Off -DBUILD_SHARED_LIBS=Off -A Win32",
+    "configure:dynamic:x86": "yarn clean && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=On -DMSVC_DYNAMIC_RUNTIME=Off -DBUILD_SHARED_LIBS=On -A Win32",
+    "build:static": "yarn configure:static && cd build && cmake --build . --config Release -j8",
+    "build:dynamic": "yarn configure:dynamic && cd build && cmake --build . --config Release -j8",
+    "test": "cd build && ctest . -C Release -L unit"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

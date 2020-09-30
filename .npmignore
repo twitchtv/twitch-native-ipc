@@ -1,0 +1,8 @@
+.vs/
+.idea/
+build/
+node_modules/
+out/
+win/
+osx/
+conan/test_package/build/

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pushd @DOXY_SOURCE_DIR@
+
+doxypress @DOXY_FILE@
+
+popd

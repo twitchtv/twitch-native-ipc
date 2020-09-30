@@ -1,0 +1,12 @@
+[settings]
+os=Windows
+os_build=Windows
+arch=@NATIVETEMPLATEARCH@
+compiler=Visual Studio
+compiler.version=@NATIVETEMPLATECOMPILERVERSION@
+compiler.runtime=@NATIVETEMPLATECOMPILERRUNTIME@
+build_type=@NATIVETEMPLATEBUILDTYPE@
+
+[options]
+[build_requires]
+[env]

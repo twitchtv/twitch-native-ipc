@@ -1,0 +1,63 @@
+AccessModifierOffset: -4                        #remove indentation for access modifiers
+AlignAfterOpenBracket: DontAlign
+AlignEscapedNewlines: Right
+AlignOperands: true
+AlignTrailingComments: false
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: true
+BinPackArguments: false   
+BinPackParameters: false  
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: WebKit
+BreakBeforeInheritanceComma: true
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+BreakStringLiterals: true
+ColumnLimit: 100
+#CommentPragmas:
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+#ConstructorInitializerIndentWidth: 4
+#ContinuationIndentWidth: 0
+Cpp11BracedListStyle: true
+FixNamespaceComments: true
+IndentCaseLabels: false
+IndentWidth: 4
+IndentWrappedFunctionNames: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+Language: Cpp
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: None
+PointerAlignment: Right
+ReflowComments: false
+SortIncludes: true
+IncludeCategories:
+  - Regex:		'^"'                # local project includes at the top
+    Priority:	1
+  - Regex:		'^<(gtest|gmock)/'  # put test includes last
+    Priority:	100
+  - Regex:		'^<.+(/|\.h)'       # external references with a path component or with a file extension (3rd party stuff)
+    Priority:	2
+  - Regex:		'^<'                # external references without a path or suffix should be stdlib headers
+    Priority:	3
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+Standard: Cpp11
+TabWidth: 4
+UseTab: Never
