@@ -1,3 +1,6 @@
+// Copyright Twitch Interactive, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT
+
 #include "TCP-ClientTransport.h"
 
 using namespace Twitch::IPC;
