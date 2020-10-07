@@ -3,6 +3,7 @@
 #include <functional>
 #include <string>
 #include <vector>
+#include <cstring>
 
 #include "ConnectionExports.h"
 

@@ -183,7 +183,7 @@ struct TestSettings {
         return *this;
     }
 
-    TestSettings &LogLevel(LogLevel level)
+    TestSettings &GetLogLevel(LogLevel level)
     {
         InitLogging();
         _level = level;
@@ -3319,8 +3319,8 @@ TEST_P(MultiConnectIPCTest, MultiInvokeServerDestroyedTest)
 auto values = ::testing::Values(
     TestSettings{}.SleepOnConnect(0ms).SleepOnDisconnect(0ms).SleepOnData(0ms).SleepOnLog(0ms),
     TestSettings{}.SleepOnConnect(1ms).SleepOnDisconnect(1ms).SleepOnData(1ms).SleepOnLog(1ms),
-    TestSettings{}.LogLevel(LogLevel::Debug).WriteLogs(true),
-    TestSettings{}.SleepOnConnect().SleepOnDisconnect().SleepOnData().SleepOnLog().LogLevel(LogLevel::Debug)
+    TestSettings{}.GetLogLevel(LogLevel::Debug).WriteLogs(true),
+    TestSettings{}.SleepOnConnect().SleepOnDisconnect().SleepOnData().SleepOnLog().GetLogLevel(LogLevel::Debug)
 );
 
 #if DO_EXPLICIT_CHECKS

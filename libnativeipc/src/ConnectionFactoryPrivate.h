@@ -2,6 +2,7 @@
 
 #include "IClientTransport.h"
 #include "IServerTransport.h"
+#include <memory>
 
 namespace Twitch::IPC::ConnectionFactory {
 
