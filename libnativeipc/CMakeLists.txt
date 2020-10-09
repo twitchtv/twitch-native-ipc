@@ -22,7 +22,7 @@ target_sources(nativeipc PRIVATE
   src/LogMacrosWithHandle.h
   src/Message.h
   src/OperationQueue.cpp
-  src/OperationQUeue.h
+  src/OperationQueue.h
   src/Pipe-ClientTransport.cpp
   src/Pipe-ClientTransport.h
   src/Pipe-ServerTransport.cpp
