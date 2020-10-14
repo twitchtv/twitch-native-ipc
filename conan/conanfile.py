@@ -11,7 +11,7 @@ class TwitchnativeipcConan(ConanFile):
     requires = "libuv/1.38.1"
     build_requires = "gtest/1.10.0"
     options = {"shared": [True, False]}
-    default_options = "shared=False", "libuv:shared=False"
+    default_options = {"shared": False}
     exports_sources = "../libnativeipc*", "../CMakeLists.txt", "../cmakeUtils*"
 
     def _configure_cmake(self):
@@ -26,10 +26,8 @@ class TwitchnativeipcConan(ConanFile):
         #if self.settings.build_type == "Release":
         #    cmake.definitions["CMAKE_INTERPROCEDURAL_OPTIMIZATION"] = True
 
-        if self.settings.os == "Windows":
-            cmake.definitions["MSVC_DYNAMIC_RUNTIME"] = True
-            if self.settings.compiler.runtime in ["MT", "MTd"]:
-                cmake.definitions["MSVC_DYNAMIC_RUNTIME"] = False
+        if self.settings.os == "Windows":            
+            cmake.definitions["MSVC_DYNAMIC_RUNTIME"] = self.settings.compiler.runtime in ["MD", "MDd"]
         
         cmake.configure()
         return cmake
