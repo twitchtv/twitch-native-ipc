@@ -59,7 +59,8 @@ macro(run_conan)
       set(_keeprpath "KEEP_RPATHS")
     endif()
 
-    conan_cmake_run(CONANFILE conan/conanfile.py
+    if(NOT CONAN_EXPORTED)
+      conan_cmake_run(CONANFILE conan/conanfile.py
         BASIC_SETUP
         CMAKE_TARGETS
         NO_OUTPUT_DIRS
@@ -71,4 +72,5 @@ macro(run_conan)
         RELWITHDEBINFO_PROFILE ${_profile}
         ENV "CONAN_CMAKE_BINARY_DIR_PATH=${CMAKE_BINARY_DIR}"
         )
+    endif()
 endmacro()
