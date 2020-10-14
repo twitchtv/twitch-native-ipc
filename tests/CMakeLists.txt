@@ -16,4 +16,9 @@ target_link_libraries(nativeipc_tests PRIVATE
   CONAN_PKG::gtest
   nativeipc)
 
+if(UNIX)
+  target_link_libraries(nativeipc_test PRIVATE
+	m)
+endif()
+
 googletest_add_test("nativeipc_tests" nativeipc_tests)
