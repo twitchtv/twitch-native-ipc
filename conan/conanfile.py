@@ -21,7 +21,6 @@ class TwitchnativeipcConan(ConanFile):
         cmake = CMake(self, build_type=cmake_build_type)
         cmake.definitions["ENABLE_CODE_FORMATTING"] = False
         cmake.definitions["BUILD_TESTING"] = False
-        cmake.definitions["BUILD_SHARED_LIBS"] = self.options.shared
 
         # enable when automated builds have fixed the issue on windows
         #if self.settings.build_type == "Release":
