@@ -17,7 +17,7 @@ target_link_libraries(nativeipc_tests PRIVATE
   nativeipc)
 
 if(UNIX)
-  target_link_libraries(nativeipc_test PRIVATE
+  target_link_libraries(nativeipc_tests PRIVATE
 	m)
 endif()
 
