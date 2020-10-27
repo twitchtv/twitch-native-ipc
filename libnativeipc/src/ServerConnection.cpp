@@ -1,3 +1,6 @@
+// Copyright Twitch Interactive, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT
+
 #include "ServerConnection.h"
 #include "ClientConnection.h"
 #include "LogMacrosWithHandle.h"

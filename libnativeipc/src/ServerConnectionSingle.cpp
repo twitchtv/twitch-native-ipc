@@ -1,3 +1,6 @@
+// Copyright Twitch Interactive, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT
+
 #include "ServerConnectionSingle.h"
 
 using namespace Twitch::IPC;

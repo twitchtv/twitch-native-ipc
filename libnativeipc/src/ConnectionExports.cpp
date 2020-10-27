@@ -1,3 +1,6 @@
+// Copyright Twitch Interactive, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT
+
 // ReSharper disable CppInconsistentNaming
 #include "ConnectionExports.h"
 #include "ConnectionFactory.h"
