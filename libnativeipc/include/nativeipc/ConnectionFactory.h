@@ -3,6 +3,7 @@
 #include "ConnectionExports.h"
 #include "IServerConnection.h"
 #include <string>
+#include <memory>
 
 namespace Twitch::IPC::ConnectionFactory {
 NATIVEIPC_LIBSPEC std::unique_ptr<IConnection> newServerConnection(const std::string &endpoint, bool allowMultiuserAccess = false);

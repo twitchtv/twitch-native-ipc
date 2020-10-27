@@ -1,6 +1,4 @@
 
-include(GenerateExportHeader)
-
 add_library(nativeipc)
 
 target_compile_features(nativeipc PRIVATE cxx_std_17)
@@ -22,7 +20,7 @@ target_sources(nativeipc PRIVATE
   src/LogMacrosWithHandle.h
   src/Message.h
   src/OperationQueue.cpp
-  src/OperationQUeue.h
+  src/OperationQueue.h
   src/Pipe-ClientTransport.cpp
   src/Pipe-ClientTransport.h
   src/Pipe-ServerTransport.cpp
@@ -50,9 +48,10 @@ target_sources(nativeipc PRIVATE
 
 if(MSVC)
   target_sources(nativeipc PRIVATE $<IF:$<BOOL:${BUILD_SHARED_LIBS}>, src/platform/win/dllmain.cpp,>)
-  target_compile_options(nativeipc PRIVATE /W4 /WX)
-else()
-  target_compile_options(nativeipc PRIVATE -Wall -Wextra -pedantic -Werror)
+  
+  target_compile_definitions(nativeipc PRIVATE
+    $<IF:$<BOOL:${BUILD_SHARED_LIBS}>, NATIVEIPC_EXPORT , NATIVEIPC_STATIC_DEFINE>
+    )
 endif()
 
 target_include_directories(nativeipc PUBLIC
@@ -62,35 +61,21 @@ target_include_directories(nativeipc PUBLIC
 target_link_libraries(nativeipc PRIVATE
   CONAN_PKG::libuv)
 
-target_compile_definitions(nativeipc PRIVATE)
-
-if(MSVC)
-  target_compile_definitions(nativeipc PRIVATE
-    WIN32_LEAN_AND_MEAN
-	$<IF:$<BOOL:${BUILD_SHARED_LIBS}>, NATIVEIPC_EXPORT , NATIVEIPC_STATIC_DEFINE>
-	)
-
-  if(BUILD_SHARED_LIBS)
-	set(libname "nativeipc.dll")
-  else()
-	set(libname "nativeipc")
-  endif()
-  
-  set_target_properties(nativeipc
-	PROPERTIES COMPILE_PDB_NAME nativeipc)
-endif()
+set_target_properties(nativeipc
+  PROPERTIES COMPILE_PDB_NAME nativeipc)
 
 install(TARGETS nativeipc
+  LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
   )
 
 install(DIRECTORY include
   DESTINATION ${CMAKE_INSTALL_PREFIX}
   )
 
-if(MSVC)
-  install(FILES ${CMAKE_BINARY_DIR}/bin/nativeipc.pdb
-	CONFIGURATIONS Debug RelWithDebInfo
-	DESTINATION lib
-	)
-endif()
+install(FILES ${CMAKE_BINARY_DIR}/bin/nativeipc.pdb
+  CONFIGURATIONS Debug RelWithDebInfo
+  DESTINATION lib
+  OPTIONAL
+  )
